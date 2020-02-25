@@ -8,6 +8,7 @@ var Comment = require("./models/comment")
 // var User = require("./models/user")
 
 //seedDB();
+app.use(express.static(__dirname + "/public"));
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
