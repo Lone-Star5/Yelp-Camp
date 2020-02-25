@@ -8,7 +8,7 @@ var seedDB = require("./seeds");
 // var Comment = require("./models/comment")
 // var User = require("./models/user")
 
-seedDB();
+//seedDB();
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
@@ -46,7 +46,6 @@ app.get("/campgrounds/:id/show", function(req, res){
 			console.log(err);
 		else
 		{
-			console.log(foundCampground);
 			res.render("campgrounds/show", {campground: foundCampground});
 		}
 
@@ -55,7 +54,12 @@ app.get("/campgrounds/:id/show", function(req, res){
 })
 
 app.get("/campgrounds/:id/comments/new", function(req, res){
-	res.render("comments/new")
+	Campground.findById(req.params.id, function(err, campground){
+		if(err)
+			console.log(err)
+		else
+			res.render("comments/new",{campground:campground})		
+	})
 })
 
 app.post("/campgrounds", function(req, res){
