@@ -4,8 +4,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 var Campground = require("./models/campground");
 var seedDB = require("./seeds");
-
-// var Comment = require("./models/comment")
+var Comment = require("./models/comment")
 // var User = require("./models/user")
 
 //seedDB();
@@ -13,7 +12,7 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb://localhost/yelp_camp_v3");
+mongoose.connect("mongodb://localhost/yelp_camp_v4");
 
 
 
@@ -77,6 +76,29 @@ app.post("/campgrounds", function(req, res){
 	})
 	
 });
+
+app.post("/campgrounds/:id/comments", function(req, res){
+	Campground.findById(req.params.id, function(err, campground){
+		if(err)
+		{
+			console.log(err)
+			res.redirect("/campgrounds");
+		}
+		else
+		{
+			Comment.create(req.body.comment, function(err, comment){
+				if(err)
+					console.log(err)
+				else
+				{
+					campground.comments.push(comment);
+					campground.save();
+					res.redirect("/campgrounds/"+campground._id+"/show")
+				}
+			})
+		}
+	})
+})
 
 app.listen(3000, function(){
 	console.log("Server Running ...")
