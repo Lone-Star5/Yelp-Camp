@@ -2,9 +2,12 @@ const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
 var Campground = require("./models/campground");
 var seedDB = require("./seeds");
-var Comment = require("./models/comment")
+var User = require("./models/user");
+var Comment = require("./models/comment");
 // var User = require("./models/user")
 
 //seedDB();
