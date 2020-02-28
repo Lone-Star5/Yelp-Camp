@@ -33,6 +33,11 @@ passport.deserializeUser(User.deserializeUser())
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 
+app.use(function(req, res, next){
+	res.locals.currentUser = req.user;
+	next();
+})
+
 app.get('/', function(req, res){
 	res.render("home");
 })
