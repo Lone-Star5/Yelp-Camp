@@ -1,19 +1,18 @@
-const express = require('express');
-const app = express();
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
-const passport = require("passport");
-const LocalStrategy = require("passport-local");
-var Campground = require("./models/campground");
-var seedDB = require("./seeds");
-var User = require("./models/user");
-var Comment = require("./models/comment");
+const 	express 		= require('express'),
+		app 			= express(),
+		bodyParser 		= require("body-parser"),
+		mongoose		= require("mongoose"),
+		passport 		= require("passport"),
+		LocalStrategy	= require("passport-local"),
+		Campground 		= require("./models/campground"),
+		seedDB 			= require("./seeds"),
+		User 			= require("./models/user"),
+		Comment 		= require("./models/comment")
 
 
-var commentRoutes = require("./routes/comments")
-var campgroundRoutes = require("./routes/campgrounds")
-var indexRoutes = require("./routes/index")
-// var User = require("./models/user")
+var commentRoutes 		= require("./routes/comments"),
+	campgroundRoutes 	= require("./routes/campgrounds"),
+	indexRoutes 		= require("./routes/index")
 
 //seedDB();
 app.use(express.static(__dirname + "/public"));
