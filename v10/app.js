@@ -2,6 +2,7 @@ const 	express 		= require('express'),
 		app 			= express(),
 		bodyParser 		= require("body-parser"),
 		mongoose		= require("mongoose"),
+		methodOverride 	= require("method-override"),
 		passport 		= require("passport"),
 		LocalStrategy	= require("passport-local"),
 		Campground 		= require("./models/campground"),
@@ -20,7 +21,7 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb://localhost/yelp_camp_v8");
+mongoose.connect("mongodb://localhost/yelp_camp_v10");
 
 app.use(require("express-session")({
 	secret: "Yelp-Camp project is fun",
@@ -30,6 +31,7 @@ app.use(require("express-session")({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(methodOverride("_method"));
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
