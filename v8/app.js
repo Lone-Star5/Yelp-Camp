@@ -20,7 +20,7 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb://localhost/yelp_camp_v8");
+mongoose.connect("mongodb://localhost/yelp_camp_v9");
 
 app.use(require("express-session")({
 	secret: "Yelp-Camp project is fun",
