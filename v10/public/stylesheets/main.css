@@ -1,3 +1,8 @@
+#delete-form{
+	display: inline;
+	margin-left:10px;
+}
+
 .thumbnail img{
 	width:100%;
 }
