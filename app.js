@@ -16,12 +16,11 @@ var commentRoutes 		= require("./routes/comments"),
 	campgroundRoutes 	= require("./routes/campgrounds"),
 	indexRoutes 		= require("./routes/index")
 
-//seedDB();
 app.use(express.static(__dirname + "/public"));
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-mongoose.set('useUnifiedTopology', true);
+mongoose.set('useUnifiedTopology', false;
 mongoose.connect("mongodb+srv://yelpcamp:yelpcamp@cluster0-qko5l.mongodb.net/test?retryWrites=true&w=majority");
 
 app.use(require("express-session")({
