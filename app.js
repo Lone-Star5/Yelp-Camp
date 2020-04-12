@@ -52,6 +52,4 @@ app.use(indexRoutes)
 app.use("/campgrounds/:id/comments", commentRoutes)
 app.use("/campgrounds", campgroundRoutes)
 
-app.listen(3000, function(){
-	console.log("Server Running ...")
-})
+app.listen(process.env.PORT, process.env.IP);
