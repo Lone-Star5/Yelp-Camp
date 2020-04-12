@@ -22,12 +22,7 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb+srv://yelpcamp:yelpcamp@cluster0-qko5l.mongodb.net/test?retryWrites=true&w=majority").then(() => {
-	console.log("Connected to DB");
-}).catch(err => {
-	console.log(err.message);
-});
-
+mongoose.connect("mongodb+srv://yelpcamp:yelpcamp@cluster0-qko5l.mongodb.net/test?retryWrites=true&w=majority");
 
 app.use(require("express-session")({
 	secret: "Yelp-Camp project is fun",

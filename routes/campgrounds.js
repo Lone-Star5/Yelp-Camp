@@ -6,8 +6,10 @@ var middleware = require("../middleware")
 
 router.get("/", async function(req, res){
 	Campground.find({}, function(err,allCampgrounds){
-		if(err)
+		if(err){
+			res.redirect("/");
 			console.log(err);
+		}
 		else{
 			res.render("campgrounds/index", {campgrounds:allCampgrounds})
 		}
@@ -46,7 +48,6 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 			console.log(err)
 		}
 		else{
-			console.log(newcampground)
 			res.redirect("/campgrounds");
 		}
 	})
