@@ -22,8 +22,11 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb+srv://yelpcamp:<password>@cluster0-qko5l.mongodb.net/test?retryWrites=true&w=majority");
-
+mongoose.connect("mongodb+srv://yelpcamp:yelpcamp@cluster0-qko5l.mongodb.net/test?retryWrites=true&w=majority").then(() => {
+	console.log("Connected to DB");
+}).catch(err => {
+	console.log(err.message);
+});
 
 
 app.use(require("express-session")({

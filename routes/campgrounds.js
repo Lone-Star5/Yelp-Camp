@@ -4,7 +4,7 @@ var Campground = require("../models/campground")
 var middleware = require("../middleware")
 
 
-router.get("/", function(req, res){
+router.get("/", async function(req, res){
 	Campground.find({}, function(err,allCampgrounds){
 		if(err)
 			console.log(err);
