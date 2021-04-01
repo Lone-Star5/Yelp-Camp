@@ -1,11 +1,23 @@
 <%- include("./partials/header") %>
 
-<h1> Sign Up </h1>
 
-<form action = "/register" method = "POST" >
-	<input type = "text" name = "username" placeholder = "username">
-	<input type = "password" name = "password" placeholder = "password">
-	<button> Sign Up </button>
-</form>
+<div class="container">
+	<form name="myform" class="form-group" action="/register" method="POST">
+		<h2 style="text-align: center; font-weight: bold;font-size: 45px;">Register For New Account</h1>
+		<div class="row jumbotron jumbotron-fluid">
+		  <div class="col-md-12 my-3">
+			<label for="inputname">User Name</label>
+			<input type="text" class="form-control" name='username' placeholder="User Name">
+		  </div>
+		  <div class="col-md-12 my-3">
+			<label for="password">Password</label>
+			<input type="password" class="form-control" name='password' placeholder="Password">
+		  </div>
+		  <button class="btn btn-primary my-3" style="margin: 10px 0px 0px 20px;text-align: center;align-self:center;" type="submit">Register</button>
+		</div>
+	  </form>
+</div>
+
+
 
 <%- include("./partials/footer") %>
